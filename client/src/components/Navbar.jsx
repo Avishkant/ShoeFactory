@@ -30,9 +30,9 @@ export default function Navbar() {
           <Link to="/about" className="hover:text-orange-600">
             About
           </Link>
-          <a href="#" className="hover:text-orange-600">
+          <Link to="/contact" className="hover:text-orange-600">
             Contact
-          </a>
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">

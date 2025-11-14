@@ -8,6 +8,7 @@ import ShoeRange from "./components/ShoeRange";
 import WhoWeAre from "./components/WhoWeAre";
 import HowWeWork from "./components/HowWeWork";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import { initScrollReveal } from "./hooks/scrollReveal";
 
@@ -29,6 +30,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={Home} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
         </Routes>
         <Footer />

@@ -1,5 +1,15 @@
 import React from "react";
-import logo from "../assets/c-h-slider-2.png";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, when: "beforeChildren" } },
+};
+
+const col = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 0.84, 0.24, 1] } },
+};
 
 export default function Footer() {
   return (
@@ -18,8 +28,8 @@ export default function Footer() {
       </svg>
 
       <div className="max-w-7xl mx-auto px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="contacts">
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.12 }}>
+          <motion.div className="contacts" variants={col}>
             <h3 className="text-2xl font-bold mb-4">Our Contacts</h3>
             <p className="mb-4 max-w-xs text-gray-100 leading-relaxed">
               Plot No. 341, Sector 17, New York.
@@ -27,7 +37,7 @@ export default function Footer() {
             <p className="mb-4 text-gray-100">Sales@shoefactory.Com</p>
 
             <div className="flex items-center gap-4">
-              <div className="phone-circle bg-white text-[#b5b061] p-3 rounded-full">
+              <div className="phone-circle bg-white text-[#b5b061] p-3 rounded-full motion-smooth">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5"
@@ -48,9 +58,9 @@ export default function Footer() {
                 <div className="text-lg font-semibold">+91-8888888888</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="quick-links flex justify-center">
+          <motion.div className="quick-links flex justify-center" variants={col}>
             <div>
               <h3 className="text-2xl font-bold mb-4">Quick Link</h3>
               <div className="grid grid-cols-2 gap-4 text-gray-100">
@@ -71,9 +81,9 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="hours">
+          <motion.div className="hours" variants={col}>
             <h3 className="text-2xl font-bold mb-4">Open Hours</h3>
             <p className="mb-6 text-gray-100">
               Mon - Sat 9am - 7pm
@@ -116,8 +126,8 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <hr className="my-8 border-white/10" />
 
