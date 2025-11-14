@@ -1,0 +1,230 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+main {
+  /* reserve space for the fixed navbar */
+  padding-top: 1rem;
+}
+
+.hero-cta {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.hero-cta:hover {
+  transform: translateY(-3px);
+}
+
+/* full-bleed helper: allow an element to span the viewport width even when #root has a max-width */
+.full-bleed-viewport {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* avoid horizontal scroll introduced by full-bleed sections */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Carousel specific styling tweaks */
+.carousel-item {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.carousel-item .hero-cta {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+/* reduce image selection highlight */
+.carousel-item img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* mobile friendly: ensure buttons are reachable */
+@media (max-width: 640px) {
+  .carousel-item .hero-cta {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* HowWeWork animations and card styles */
+.ww-card {
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 420ms ease,
+    box-shadow 220ms ease;
+  will-change: transform, opacity;
+  background: #ffffff;
+  border: none;
+  padding-bottom: 4.5rem; /* room for the CTA button */
+  box-shadow: 0 40px 80px rgba(15, 23, 42, 0.06);
+  position: relative;
+}
+.ww-card.in-view {
+  transform: translateY(0);
+  opacity: 1;
+}
+.ww-card:hover {
+  transform: translateY(-12px) scale(1.01);
+  box-shadow: 0 50px 100px rgba(10, 10, 10, 0.09);
+}
+.ww-btn {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    background-color 180ms ease, color 160ms ease;
+}
+.ww-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* icon circle animations */
+.icon-circle {
+  transform: scale(0.86) translateY(0);
+  opacity: 0.98;
+  transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 300ms ease;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+}
+.ww-card.in-view .icon-circle {
+  transform: scale(1) translateY(-6px);
+}
+.ww-card:hover .icon-circle {
+  transform: scale(1.06) translateY(-8px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.06);
+}
+
+/* primary CTA: orange border and filled on hover */
+.ww-btn.primary {
+  color: #e85b19;
+  border-color: rgba(232, 91, 25, 0.18);
+  letter-spacing: 0.18em;
+}
+.ww-btn.primary:hover {
+  background-color: #e85b19;
+  color: #fff;
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* subtle pop animation when card comes in - small bounce */
+@keyframes pop {
+  0% {
+    transform: scale(0.92);
+  }
+  60% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.ww-card.in-view {
+  animation: pop 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* About page styles */
+.about-hero {
+  height: 420px;
+  position: relative;
+  display: block;
+}
+.about-hero .about-shape {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.9;
+  transform-origin: center;
+}
+.about-hero .shape-1 {
+  left: 6%;
+  top: 8%;
+  width: 220px;
+  height: 220px;
+  animation: float 8s ease-in-out infinite;
+}
+.about-hero .shape-2 {
+  right: 4%;
+  bottom: 10%;
+  width: 180px;
+  height: 180px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) translateX(6px) rotate(6deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+}
+
+.about-cta {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.about-cta:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.about-card {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 520ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 520ms ease,
+    box-shadow 220ms ease;
+  will-change: transform, opacity;
+}
+.about-card.in-view {
+  transform: translateY(0);
+  opacity: 1;
+}
+.about-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.08);
+}
