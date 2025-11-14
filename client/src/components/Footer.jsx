@@ -8,7 +8,11 @@ const container = {
 
 const col = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 0.84, 0.24, 1] } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 0.84, 0.24, 1] },
+  },
 };
 
 export default function Footer() {
@@ -28,7 +32,13 @@ export default function Footer() {
       </svg>
 
       <div className="max-w-7xl mx-auto px-8 py-16">
-        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.12 }}>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.12 }}
+        >
           <motion.div className="contacts" variants={col}>
             <h3 className="text-2xl font-bold mb-4">Our Contacts</h3>
             <p className="mb-4 max-w-xs text-gray-100 leading-relaxed">
@@ -60,7 +70,10 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          <motion.div className="quick-links flex justify-center" variants={col}>
+          <motion.div
+            className="quick-links flex justify-center"
+            variants={col}
+          >
             <div>
               <h3 className="text-2xl font-bold mb-4">Quick Link</h3>
               <div className="grid grid-cols-2 gap-4 text-gray-100">
