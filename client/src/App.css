@@ -1,7 +1,7 @@
 #root {
   max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem 0; /* keep top and side spacing, remove bottom padding to avoid gap under full-bleed footer */
   text-align: center;
 }
 
@@ -53,6 +53,72 @@ main {
   transform: translateY(-3px);
 }
 
+/* Hero entrance animations on load */
+@keyframes slideUpFade {
+  from {
+    transform: translateY(22px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate .hero-title,
+  .hero-animate .hero-sub,
+  .hero-animate .hero-copy,
+  .hero-animate .hero-ctas {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-init .hero-title,
+.hero-init .hero-sub,
+.hero-init .hero-copy,
+.hero-init .hero-ctas {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.hero-animate .hero-title {
+  animation: slideUpFade 720ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation-delay: 80ms;
+}
+.hero-animate .hero-sub {
+  animation: slideUpFade 640ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation-delay: 240ms;
+}
+.hero-animate .hero-copy {
+  animation: slideUpFade 600ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation-delay: 360ms;
+}
+.hero-animate .hero-ctas {
+  animation: slideUpFade 560ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation-delay: 520ms;
+}
+
+.hero-animate .hero-ctas a {
+  transform-origin: center;
+  transition: transform 220ms ease;
+}
+.hero-animate .hero-ctas a:hover {
+  transform: translateY(-6px);
+}
+
+/* performance and smoothing helpers for JS-driven animations */
+.motion-smooth {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+.motion-smooth *,
+.motion-smooth svg {
+  will-change: transform, opacity;
+}
+
 /* full-bleed helper: allow an element to span the viewport width even when #root has a max-width */
 .full-bleed-viewport {
   width: 100vw;
@@ -64,6 +130,7 @@ main {
 /* avoid horizontal scroll introduced by full-bleed sections */
 html,
 body {
+  margin: 0; /* remove default body margin which can create gaps */
   overflow-x: hidden;
 }
 
@@ -227,4 +294,291 @@ body {
 .about-card:hover {
   transform: translateY(-8px) scale(1.01);
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.08);
+}
+
+/* Showcase / Accordion styles */
+.shoe-wrap {
+  max-width: 720px;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.accordion-item {
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+.accordion-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 320ms ease, padding 320ms ease;
+}
+.accordion-content.open {
+  padding-top: 0.75rem;
+}
+
+.accordion-item .w-3 {
+  width: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .shoe-wrap {
+    max-width: 420px;
+  }
+}
+
+/* Footer styles */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+.site-footer .footer-wave {
+  position: absolute;
+  bottom: -1px;
+  .footer-top-wave {
+    width: 100%;
+    height: 64px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0)
+    );
+    transform: translateZ(0);
+  }
+  .site-footer-olive > .max-w-7xl {
+    position: relative;
+    z-index: 1;
+  }
+  .site-footer-olive {
+    /* ensure full viewport width even if wrapped by centered container */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    left: 0;
+  }
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-block;
+  transition: color 160ms ease, transform 200ms ease;
+}
+.footer-link:hover {
+  color: #ffd6b3;
+  transform: translateY(-2px);
+}
+.footer-social {
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
+}
+.footer-social:hover {
+  transform: translateY(-4px) scale(1.06);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.45);
+}
+.newsletter-input {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.newsletter-input:focus {
+  box-shadow: 0 8px 30px rgba(255, 165, 80, 0.08);
+  border-color: rgba(255, 165, 80, 0.28);
+}
+.btn-subscribe {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.btn-subscribe:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(232, 91, 25, 0.16);
+}
+
+.site-footer .footer-brand,
+.site-footer .footer-links {
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 520ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 520ms ease;
+}
+.site-footer.in-view .footer-brand,
+.site-footer.in-view .footer-links {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Olive themed footer (screenshot) */
+.site-footer-olive {
+  --olive-100: #b5b061;
+  --olive-90: #a9ad4f;
+  background: linear-gradient(180deg, var(--olive-100), var(--olive-90));
+  color: #fff;
+  position: relative;
+}
+.footer-top-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: block;
+  transform: translateY(-1px);
+  z-index: 0;
+}
+.site-footer-olive > .max-w-7xl {
+  position: relative;
+  z-index: 1;
+}
+.site-footer-olive h3 {
+  color: #fff;
+}
+.site-footer-olive p {
+  color: rgba(255, 255, 255, 0.92);
+}
+.phone-circle {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+.phone-circle svg {
+  width: 22px;
+  height: 22px;
+}
+.phone-circle.bg-white {
+  background: #fff;
+}
+.phone-circle.bg-white svg {
+  color: var(--olive-100);
+  fill: var(--olive-100);
+}
+.footer-item {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  padding: 6px 0;
+  display: inline-block;
+}
+.footer-item:hover {
+  color: #fff;
+  opacity: 0.9;
+}
+.social-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+.social-white svg {
+  display: block;
+}
+.social-white:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+.company-highlight {
+  background: #ffd85a;
+  color: #111;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.footer-stars {
+  position: absolute;
+  left: 28px;
+  bottom: 18px;
+  width: 120px;
+  height: auto;
+  opacity: 0.35;
+  transform: rotate(-8deg);
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .site-footer-olive .grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-stars {
+    display: none;
+  }
+  .footer-top-wave {
+    height: 60px;
+  }
+}
+
+/* Global scroll reveal helpers */
+:root {
+  --reveal-duration: 520ms;
+  --reveal-ease: cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealable {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.revealable {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: transform var(--reveal-duration) var(--reveal-ease),
+    opacity calc(var(--reveal-duration) * 0.9) ease;
+  will-change: transform, opacity;
+}
+.revealable.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* direction modifiers: when dataset reveals specific motion, the scrollReveal utility will add these classes */
+.reveal-up.in-view {
+  transform: translateY(0);
+}
+.reveal-up {
+  transform: translateY(24px);
+}
+.reveal-left {
+  transform: translateX(-26px);
+}
+.reveal-right {
+  transform: translateX(26px);
+}
+.reveal-fade {
+  transform: none;
+}
+.reveal-left.in-view,
+.reveal-right.in-view {
+  transform: translateX(0);
+}
+
+/* small stagger helper: can be set with data-reveal-delay="120ms" on elements */
+
+/* subtle parallax/float motion classes */
+.motion-slow {
+  animation: float 9s ease-in-out infinite;
+}
+.motion-subtle {
+  animation: float 12s ease-in-out infinite;
+}
+
+/* reveal for images (slightly quicker) */
+.reveal-img {
+  transition-duration: 420ms;
+}
+
+/* small utility to nudge in on hover when visible */
+.revealable.in-view:hover {
+  transform: translateY(-6px);
+  transition-duration: 320ms;
 }

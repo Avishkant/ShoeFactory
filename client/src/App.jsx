@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import "../src/index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -8,6 +8,8 @@ import ShoeRange from "./components/ShoeRange";
 import WhoWeAre from "./components/WhoWeAre";
 import HowWeWork from "./components/HowWeWork";
 import About from "./pages/About";
+import Footer from "./components/Footer";
+import { initScrollReveal } from "./hooks/scrollReveal";
 
 function App() {
   const Home = (
@@ -29,9 +31,19 @@ function App() {
           <Route path="/" element={Home} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
 }
 
-export default App;
+// initialize scroll reveal when App mounts (only once)
+function AppWithReveal() {
+  useEffect(() => {
+    const handle = initScrollReveal();
+    return () => handle && handle.disconnect && handle.disconnect();
+  }, []);
+  return <App />;
+}
+
+export default AppWithReveal;

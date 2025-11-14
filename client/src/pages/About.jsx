@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import bg from "../assets/about/marketing-bg6.png";
 import downloadSvg from "../assets/about/download.svg";
+import heroGif from "../assets/about/hero-image.gif";
+import { useState } from "react";
 
 export default function About() {
   useEffect(() => {
@@ -170,7 +172,78 @@ export default function About() {
             </article>
           </div>
         </section>
+
+        {/* Showcase with shoe image + accordion */}
+        <section className="max-w-7xl mx-auto mt-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="flex justify-center lg:justify-start">
+              <div className="shoe-wrap max-w-[680px] w-full">
+                <img
+                  src={heroGif}
+                  alt="shoe"
+                  className="w-full object-contain animate-float"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+                Your Dreaming Sports Shoes Factory
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Easy-to-meet order requirements make it simple to stock the
+                styles you love and begin generating profits right away.
+              </p>
+
+              <div className="space-y-6">
+                <AccordionItem title="Founded Year" color="bg-yellow-400">
+                  Founded in 2014, we grew through consistent quality and
+                  partnership.
+                </AccordionItem>
+                <AccordionItem title="Leading Brands" color="bg-teal-400">
+                  We work with numerous international brands to produce private
+                  label lines.
+                </AccordionItem>
+                <AccordionItem title="Happy Clients" color="bg-blue-500">
+                  Thousands of satisfied clients and zero customer complaints
+                  since 2014.
+                </AccordionItem>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+    </div>
+  );
+}
+
+function AccordionItem({ title, children, color = "bg-gray-300" }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className={`accordion-item relative bg-white rounded-xl shadow-sm overflow-hidden`}
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+        aria-expanded={open}
+        aria-controls={`panel-${title.replace(/\s+/g, "-")}`}
+      >
+        <div className="flex items-center gap-4">
+          <div className={`w-3 h-12 rounded-r-md ${color}`} />
+          <span className="font-semibold">{title}</span>
+        </div>
+        <span className="text-gray-400">{open ? "–" : "+"}</span>
+      </button>
+
+      {open && (
+        <div
+          id={`panel-${title.replace(/\s+/g, "-")}`}
+          className={`accordion-content px-6 pb-6`}
+        >
+          <p className="text-sm text-gray-600 mt-2">{children}</p>
+        </div>
+      )}
     </div>
   );
 }
