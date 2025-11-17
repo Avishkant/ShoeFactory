@@ -1,19 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, when: "beforeChildren" } },
-};
-
-const col = {
-  hidden: { opacity: 0, y: 18 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.16, 0.84, 0.24, 1] },
-  },
-};
 
 export default function Footer() {
   return (
@@ -32,17 +17,11 @@ export default function Footer() {
       </svg>
 
       <div className="max-w-7xl mx-auto px-8 py-16">
-        <motion.div
-            data-reveal="up" className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.12 }}
-        >
-          <motion.div className="contacts" variants={col}>
-              <h3 className="text-2xl font-bold mb-4">Our Contacts</h3>
-              <p className="mb-4 max-w-xs text-gray-100 leading-relaxed">
-                Plot No. 341, Sector 17, New York.
+        <div data-reveal="up" className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="contacts revealable in-view" data-reveal="up">
+            <h3 className="text-2xl font-bold mb-4">Our Contacts</h3>
+            <p className="mb-4 max-w-xs text-gray-100 leading-relaxed">
+              Plot No. 341, Sector 17, New York.
             </p>
             <p className="mb-4 text-gray-100">Sales@shoefactory.Com</p>
 
@@ -68,11 +47,11 @@ export default function Footer() {
                 <div className="text-lg font-semibold">+91-8888888888</div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-              className="quick-links flex justify-center revealable"
-            variants={col}
+          <div
+            className="quick-links flex justify-center revealable in-view"
+            data-reveal="up"
           >
             <div>
               <h3 className="text-2xl font-bold mb-4">Quick Link</h3>
@@ -94,10 +73,10 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div className="hours" variants={col}>
-              <h3 className="text-2xl font-bold mb-4">Open Hours</h3>
+          <div className="hours revealable in-view" data-reveal="up">
+            <h3 className="text-2xl font-bold mb-4">Open Hours</h3>
             <p className="mb-6 text-gray-100">
               Mon - Sat 9am - 7pm
               <br />
@@ -139,8 +118,8 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         <hr className="my-8 border-white/10" />
 

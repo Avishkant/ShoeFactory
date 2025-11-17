@@ -177,7 +177,7 @@ export default function HowWeWork() {
                         strokeLinejoin="round"
                         d="M12 2l7 4v6c0 5-3.4 9-7 11-3.6-2-7-6-7-11V6l7-4z"
                       />
-                      <path 
+                      <path
                         strokeLinecap="rou nd"
                         strokeLinejoin="round"
                         d="M9.5 12.5l1.8 1.8L15 10"
