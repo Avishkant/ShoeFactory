@@ -661,3 +661,95 @@ body {
     display: none;
   }
 }
+
+/* Additional mobile-first adjustments to improve responsiveness across pages */
+@media (max-width: 640px) {
+  /* Hero: reduce vertical footprint for small phones */
+  .hero-cta {
+    padding: 0.75rem 1rem;
+  }
+
+  /* About hero smaller shapes */
+  .about-hero {
+    height: 260px;
+  }
+  .about-hero .shape-1 {
+    width: 120px;
+    height: 120px;
+    left: 4%;
+    top: 6%;
+  }
+  .about-hero .shape-2 {
+    width: 110px;
+    height: 110px;
+    right: 6%;
+    bottom: 6%;
+  }
+
+  /* HowWeWork cards: reduce padding and stack comfortably */
+  .ww-card {
+    padding: 1rem;
+    padding-bottom: 2.25rem;
+  }
+
+  /* Shoe showcase: smaller max width */
+  .shoe-wrap {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Footer adjustments for small screens */
+  .site-footer-olive {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+  .site-footer-olive .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .phone-circle {
+    width: 40px;
+    height: 40px;
+  }
+  .phone-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+  .footer-social {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Footer grid: ensure single column stacking and comfortable spacing */
+  .site-footer-olive .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Contact page form: make inputs easier to tap */
+  .contact-form .input,
+  .contact-form .textarea {
+    padding: 0.9rem 1rem;
+    font-size: 15px;
+  }
+
+  /* Reveal hover nudges can feel cramped on mobile — limit them */
+  .revealable.in-view:hover {
+    transform: translateY(0) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  .about-hero {
+    height: 220px;
+  }
+  .hero-ctas a {
+    padding: 0.6rem 0.9rem;
+    font-size: 14px;
+  }
+  .shoe-wrap {
+    max-width: 300px;
+  }
+}

@@ -43,7 +43,7 @@ export default function HowWeWork() {
   }, []);
 
   return (
-    <section className="py-24 bg-white text-gray-800">
+    <section className="py-12 md:py-24 bg-white text-gray-800">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <div className="flex items-center justify-center mb-6">
           <div className="w-20 h-20 rounded-full bg-orange-500 flex items-center justify-center shadow-md">
@@ -177,8 +177,8 @@ export default function HowWeWork() {
                         strokeLinejoin="round"
                         d="M12 2l7 4v6c0 5-3.4 9-7 11-3.6-2-7-6-7-11V6l7-4z"
                       />
-                      <path
-                        strokeLinecap="round"
+                      <path 
+                        strokeLinecap="rou nd"
                         strokeLinejoin="round"
                         d="M9.5 12.5l1.8 1.8L15 10"
                       />
@@ -190,7 +190,7 @@ export default function HowWeWork() {
             return (
               <article
                 key={i}
-                className="ww-card bg-white rounded-xl p-8 text-left relative overflow-visible"
+                className="ww-card bg-white rounded-xl p-6 md:p-8 text-left relative overflow-visible"
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <div className="flex items-center justify-center mb-6">
@@ -204,7 +204,7 @@ export default function HowWeWork() {
                 <h3 className="text-lg font-semibold mb-3">{s.title}</h3>
                 <p className="text-sm text-gray-500 mb-8">{s.desc}</p>
 
-                <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-6">
+                <div className="sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-bottom-6 mt-6 sm:mt-0">
                   {i === 0 ? (
                     <button className="ww-btn bg-white px-6 py-2 rounded-full text-sm font-semibold tracking-widest border border-orange-300 shadow-sm text-orange-500 hover:bg-orange-500 hover:text-white transition">
                       BROWSE NOW

@@ -99,7 +99,7 @@ export default function ShoeRange() {
                 return (
                   <div
                     key={idx}
-                    className="carousel-item p-4 flex-shrink-0"
+                    className="carousel-item p-2 md:p-4 flex-shrink-0"
                     style={{ width: `${itemWidth}%` }}
                   >
                     <div
@@ -107,7 +107,7 @@ export default function ShoeRange() {
                         isCenter ? "scale-105 shadow-2xl" : "scale-100"
                       }`}
                     >
-                      <div className="w-full h-72 flex items-center justify-center bg-white rounded-md overflow-hidden">
+                      <div className="w-full h-56 md:h-72 flex items-center justify-center bg-white rounded-md overflow-hidden">
                         <img
                           src={it.img}
                           alt={it.title}
@@ -136,7 +136,7 @@ export default function ShoeRange() {
           <button
             aria-label="prev"
             onClick={() => goto(index - 1)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md hover:scale-105"
+            className="hidden md:block absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md hover:scale-105"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +156,7 @@ export default function ShoeRange() {
           <button
             aria-label="next"
             onClick={() => goto(index + 1)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md hover:scale-105"
+            className="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md hover:scale-105"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

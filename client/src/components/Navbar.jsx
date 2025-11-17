@@ -18,15 +18,15 @@ export default function Navbar() {
           <Link to="/" className="hover:text-orange-600">
             Home
           </Link>
-          <a href="#" className="hover:text-orange-600">
+          {/* <a href="#" className="hover:text-orange-600">
             Products
           </a>
           <a href="#" className="hover:text-orange-600">
             Advantages
-          </a>
-          <a href="#" className="hover:text-orange-600">
+          </a> */}
+          {/* <a href="#" className="hover:text-orange-600">
             Partners
-          </a>
+          </a> */}
           <Link to="/about" className="hover:text-orange-600">
             About
           </Link>

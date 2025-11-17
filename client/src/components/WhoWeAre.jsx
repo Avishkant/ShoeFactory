@@ -37,7 +37,7 @@ const iconVariant = {
 export default function WhoWeAre() {
   return (
     <motion.section
-      className="py-20 bg-white text-gray-700"
+      className="py-12 md:py-20 bg-white text-gray-700"
       variants={container}
       initial="hidden"
       whileInView="show"

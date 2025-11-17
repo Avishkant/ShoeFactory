@@ -33,16 +33,16 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-8 py-16">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            data-reveal="up" className="grid grid-cols-1 md:grid-cols-3 gap-8"
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.12 }}
         >
           <motion.div className="contacts" variants={col}>
-            <h3 className="text-2xl font-bold mb-4">Our Contacts</h3>
-            <p className="mb-4 max-w-xs text-gray-100 leading-relaxed">
-              Plot No. 341, Sector 17, New York.
+              <h3 className="text-2xl font-bold mb-4">Our Contacts</h3>
+              <p className="mb-4 max-w-xs text-gray-100 leading-relaxed">
+                Plot No. 341, Sector 17, New York.
             </p>
             <p className="mb-4 text-gray-100">Sales@shoefactory.Com</p>
 
@@ -71,7 +71,7 @@ export default function Footer() {
           </motion.div>
 
           <motion.div
-            className="quick-links flex justify-center"
+              className="quick-links flex justify-center revealable"
             variants={col}
           >
             <div>
@@ -97,7 +97,7 @@ export default function Footer() {
           </motion.div>
 
           <motion.div className="hours" variants={col}>
-            <h3 className="text-2xl font-bold mb-4">Open Hours</h3>
+              <h3 className="text-2xl font-bold mb-4">Open Hours</h3>
             <p className="mb-6 text-gray-100">
               Mon - Sat 9am - 7pm
               <br />
